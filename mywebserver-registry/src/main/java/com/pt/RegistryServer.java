@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  *
  */
-public class RegistryServer {
+public class  RegistryServer {
 
     /**
      * 全局用来存放应用名称，以及对应的ip和端口
@@ -37,12 +37,7 @@ public class RegistryServer {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ChannelPipeline pipeline = ch.pipeline();
-                        pipeline.addLast(new ChannelInitializer<SocketChannel>() {
-                            @Override
-                            protected void initChannel(SocketChannel ch) throws Exception {
 
-                            }
-                        });
                     }
                 });
     }
