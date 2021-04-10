@@ -2,6 +2,8 @@ package com.pt.config;
 
 import cn.hutool.core.convert.Convert;
 
+import java.nio.charset.Charset;
+
 /**
  * @author pt
  * @version 1.0
@@ -28,6 +30,25 @@ public class SilkSideSystemConfig {
      */
     public static void setPort(int port){
         System.setProperty(PORT,String.valueOf(port));
+    }
+
+    /**
+     * 获取系统魔数
+     * @return
+     */
+    public static byte[] getMagicNo()
+    {
+        return "pt".getBytes(Charset.forName("UTF-8"));
+    }
+
+
+
+
+    /**
+     * pt协议长度字节偏移量
+     */
+    public static  int getLengthIndex(){
+        return getMagicNo().length+4+4+4;
     }
 
 }

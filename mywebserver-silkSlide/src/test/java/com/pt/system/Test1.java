@@ -3,6 +3,7 @@ package com.pt.system;
 import com.pt.config.SilkSideSystemConfig;
 import org.junit.Test;
 
+
 /**
  * @author pt
  * @version 1.0
@@ -17,5 +18,8 @@ public class Test1 {
         SilkSideSystemConfig.setPort(8080);
         int port = SilkSideSystemConfig.getPort();
         System.out.println(port);
+
     }
+
+
 }

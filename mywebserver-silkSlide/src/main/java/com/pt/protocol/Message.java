@@ -1,5 +1,7 @@
 package com.pt.protocol;
 
+import com.pt.config.SilkSideSystemConfig;
+import com.pt.model.CommResult;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -43,7 +45,21 @@ public class Message<T extends Serializable>{
      * 消息正文
      *  消息正文的对象必须是实现了序列化接口用于网络传输
      */
-    private T  messageBody;
+    private CommResult<T> messageBody;
+
+
+    public static Message buildMessage(Object object){
+        Message message = new Message<>();
+        message.setMagicNo(SilkSideSystemConfig.getMagicNo());
+        message.setVersion(Version.PT_SILK_1.getCode());
+        message.setSerialization(0);
+        message.setMessageType(1);
+        CommResult success = CommResult.success(object);
+        int length = Serialize.Realization.Java.beanCastBytes(success).length;
+        message.setMessageLength(length);
+        message.setMessageBody(success);
+        return message;
+    }
 
 
 }

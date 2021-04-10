@@ -12,5 +12,13 @@
 
     <artifactId>mywebserver-silkSlide</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.pt</groupId>
+            <artifactId>mywebserver-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
